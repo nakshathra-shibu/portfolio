@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nakshathra | Electronics & Communication Engineering</title>
+<meta name="description" content="Portfolio of Nakshathra, ECE student at SCTCE exploring electronics, IoT, AI and healthcare technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#070a1f; --deep:#0d1130; --panel:rgba(20,22,56,.62);
+  --violet:#b58aff; --sky:#7db4ff; --lav:#e6dcff; --text:#ddd6f3; --muted:#a79fc6;
+  --line:rgba(181,138,255,.22);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--night);color:var(--text);line-height:1.75;overflow-x:hidden;
+  background-image:radial-gradient(ellipse 60% 40% at 85% 15%,rgba(112,55,190,.28),transparent),
+  radial-gradient(ellipse 50% 40% at 5% 60%,rgba(62,80,200,.18),transparent),
+  radial-gradient(ellipse 60% 30% at 50% 100%,rgba(91,43,155,.25),transparent);background-attachment:fixed}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sky);outline-offset:4px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:#fff;line-height:1.1}
+h2{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
+h2 em,h1 em{font-style:italic;color:var(--violet)}
+p{max-width:62ch}
+.wrap{max-width:1080px;margin:0 auto;padding:0 6%}
+section{padding:110px 0;position:relative}
+.kicker{font-size:14px;color:var(--sky);margin-bottom:12px;letter-spacing:.02em}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;
+  padding:16px 6%;background:rgba(7,10,31,.7);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--serif);font-size:26px;font-style:italic;text-decoration:none;color:#fff}
+.logo b{color:var(--violet);font-weight:500}
+nav ul{display:flex;gap:20px;list-style:none}
+nav ul a{text-decoration:none;font-size:14px;color:var(--text);transition:color .25s}
+nav ul a:hover{color:var(--violet)}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .wrap{position:relative;z-index:1;width:100%}
+.hero h1{font-size:clamp(40px,6.4vw,88px);white-space:nowrap;letter-spacing:-.02em;margin:10px 0 22px}
+.hero .role{font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-style:italic;color:var(--lav);margin-bottom:20px}
+.hero p{font-size:18px;color:var(--text);margin-bottom:34px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 28px;border-radius:40px;text-decoration:none;font-weight:600;font-size:15px;transition:transform .25s,box-shadow .25s}
+.btn.main{background:linear-gradient(100deg,#7a52e0,#3f84d8);color:#fff;box-shadow:0 0 28px rgba(139,92,246,.4)}
+.btn.ghost{border:1px solid var(--line);color:var(--lav)}
+.btn:hover{transform:translateY(-3px)}
+.hint{position:absolute;bottom:26px;left:6%;font-size:13px;color:var(--muted);z-index:1}
+
+/* single load sequence */
+.hero-text>*,.photo{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-text>*:nth-child(2){animation-delay:.15s}.hero-text>*:nth-child(3){animation-delay:.3s}
+.hero-text>*:nth-child(6){animation-delay:.75s}.hero-text>*:nth-child(4){animation-delay:.45s}.hero-text>*:nth-child(5){animation-delay:.6s}
+.photo{animation-delay:.5s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start}
+.about p+p{margin-top:16px}
+.facts{border-left:1px solid var(--line);padding-left:32px;display:grid;gap:22px}
+.facts dt{font-size:13px;color:var(--muted)}
+.facts dd{font-family:var(--serif);font-size:24px;color:#fff;line-height:1.25}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:40px}
+.skill{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px;backdrop-filter:blur(8px)}
+.skill h3{font-size:28px;margin-bottom:6px}
+.skill>p{font-size:15px;color:var(--muted);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{padding:5px 14px;border-radius:30px;font-size:13px;border:1px solid var(--line);color:var(--lav);background:rgba(181,138,255,.07);transition:background .2s,border-color .2s}
+.chips li:hover{background:rgba(181,138,255,.2);border-color:var(--violet)}
+
+/* photo */
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center}
+.photo{justify-self:center;width:fit-content;max-width:100%;border-radius:24px;position:relative;
+  border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,rgba(181,138,255,.35),rgba(20,22,56,.8));
+  box-shadow:0 0 60px rgba(139,92,246,.35),inset 0 0 40px rgba(139,92,246,.2);display:grid;place-items:center}
+.photo::after{content:"";position:absolute;inset:-14px;border-radius:34px;border:1px dashed rgba(181,138,255,.45);pointer-events:none}
+.photo::before{content:"\2726";position:absolute;top:-10px;right:-10px;z-index:2;color:#fff;font-size:20px;text-shadow:0 0 12px var(--violet),0 0 24px var(--sky)}
+.photo img{display:block;width:auto;height:auto;max-width:100%;max-height:320px;border-radius:24px}
+.photo:has(img) span{display:none}
+.photo span{padding:70px 55px;font-size:80px;color:rgba(230,220,255,.4)}
+.chips li.soon{border-style:dashed}
+/* recognition */
+.rec{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:40px}
+.rec h3{font-size:30px;margin-bottom:14px}
+.rec ul{list-style:none;display:grid;gap:14px}
+.rec li{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 22px}
+.rec li b{display:block;color:#fff;font-weight:600;font-size:16px}
+.rec li span{font-size:14px;color:var(--muted)}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin:40px 0}
+.gallery figure{aspect-ratio:4/5;border-radius:20px;border:1px solid var(--line);position:relative;overflow:hidden;
+  background:radial-gradient(circle at 30% 20%,rgba(255,140,190,.18),transparent 60%),var(--panel);display:grid;place-items:center}
+.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;font-size:14px;color:#fff;background:linear-gradient(transparent,rgba(7,10,31,.85))}
+.gallery.wide{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.gallery.wide figure{aspect-ratio:4/3}
+.gallery span{font-size:48px;color:rgba(230,220,255,.2)}
+/* roadmap */
+.road{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:50px;position:relative}
+.road::before{content:"";position:absolute;top:8px;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--violet),rgba(125,180,255,.25))}
+.road li{position:relative;padding-top:38px}
+.road li::before{content:"";position:absolute;top:0;left:0;width:17px;height:17px;border-radius:50%;background:var(--violet);border:2px solid var(--night);box-shadow:0 0 14px var(--violet)}
+.road li.go::before{background:var(--sky);box-shadow:0 0 18px var(--sky)}
+.road li.next::before{background:var(--night);border:2px dashed var(--violet);box-shadow:none}
+.road li.goal::before{background:var(--night);border:2px solid var(--lav);box-shadow:0 0 14px rgba(230,220,255,.6)}
+.road small{display:block;font-size:13px;color:var(--sky);margin-bottom:4px}
+.road h3{font-size:27px;margin-bottom:6px}
+.road p{font-size:15px;color:var(--muted)}
+/* hero status strip + concept tag */
+.nowline{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;color:var(--muted)}
+.nowline b{color:var(--lav);font-weight:600;margin-right:6px}
+.nowline i{font-style:normal;color:#fff}
+.skill .tag{display:inline-block;font-size:12px;color:var(--sky);border:1px solid rgba(125,180,255,.35);border-radius:30px;padding:1px 12px;margin-bottom:12px}
+/* creative */
+.creative{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:40px}
+.art{border-radius:24px;padding:38px;border:1px solid var(--line);position:relative;overflow:hidden;min-height:220px}
+.art:nth-child(1){background:radial-gradient(circle at 20% 110%,rgba(255,140,190,.25),transparent 55%),var(--panel)}
+.art:nth-child(2){background:radial-gradient(circle at 90% -10%,rgba(125,180,255,.25),transparent 55%),var(--panel)}
+.art h3{font-size:32px;margin-bottom:8px}
+.art .flower{position:absolute;right:20px;bottom:-10px;font-size:90px;color:rgba(230,220,255,.12)}
+
+/* quote */
+.quote{text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(26px,4vw,42px);color:var(--lav);line-height:1.35;max-width:22em;margin:0 auto}
+.quote span{display:block;margin-top:20px;color:var(--violet);font-size:22px;font-style:normal}
+
+/* contact */
+.contact{text-align:center}
+.contact p{margin:0 auto 32px}
+.links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;padding:34px 6%;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+
+/* scroll reveal for sections below the hero is intentionally omitted: only the hero animates */
+@media(max-width:760px){
+  nav ul{gap:14px}nav ul li:nth-child(n+4){display:none}
+  .hero h1{font-size:12vw}.about,.hero-grid{grid-template-columns:1fr;gap:34px}.photo{order:-1}.photo img{max-height:210px}.hint{display:none}.hero{padding:96px 0 56px;min-height:auto}.hero-text>*{text-align:left}.nowline{margin-top:26px}
+  .facts{border-left:0;border-top:1px solid var(--line);padding:26px 0 0}
+  section{padding:80px 0}
+  .road{grid-template-columns:1fr;gap:0;padding-left:40px}.road::before{top:8px;bottom:8px;left:8px;right:auto;width:1px;height:auto;background:linear-gradient(var(--violet),transparent)}.road li{padding:0 0 32px}.road li::before{left:-40px;top:6px}
+}
+@media(hover:none){.hint{display:none}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .hero-text>*,.photo{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="logo">Nakshathra&nbsp;P</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#journey">Roadmap</a></li>
+    <li><a href="#ideas">Ideas</a></li>
+    <li><a href="#recognition">Highlights</a></li>
+    <li><a href="#creative">Art</a></li>
+    <li><a href="#photography">Photography</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="home">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+   <div class="hero-text">
+    <div class="kicker">Electronics &amp; Communication Engineering, SCTCE</div>
+    <h1>Nakshathra&nbsp;P</h1>
+    <div class="role">An electronics engineer in the making, learning to build smart devices that sense, connect and help people.</div>
+    <p>I love studying IoT, VLSI, Embedded systems and I'm learning my way to build smart devices that help people.</p>
+    <div class="btns">
+      <a class="btn main" href="#skills">Explore my world</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="nowline">
+      <span><b>Learning now</b><i>Python, electronics, IoT basics</i></span>
+      <span><b>Up next</b><i>VLSI , Embedded systems , Arduino, ESP32</i></span>
+    </div>
+   </div>
+   <figure class="photo"><span>&#10040;</span><img src="photo.jpg" alt="Portrait of Nakshathra" onerror="this.remove()"></figure>
+  </div>
+  <div class="hint">Move your cursor through the stars. Stars wire themselves together like a circuit.</div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="kicker">About me</div>
+      <h2>The mind behind <em>the circuits.</em></h2>
+      <p>I'm an Electronics and Communication Engineering student at SCTCE, curious about how technology works and how it can make a real difference in people's lives.</p>
+      <p>What pulls me towards IoT is that it makes the physical world talk. A tiny chip, a sensor and a Wi-Fi signal can let a plant say it's thirsty, a room adjust itself, or a wearable watch over someone's health. I'm excited by that moment when a simple circuit becomes something that quietly helps a person.</p>
+      <p>Right now I'm building my foundation one step at a time: Python, electronics fundamentals and web development, with Arduino and ESP32 as my next steps.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Studying</dt><dd>B.Tech ECE, SCTCE</dd></div>
+      <div><dt>Focus</dt><dd>Electronics, IoT &amp; healthcare technology</dd></div>
+      <div><dt>Community</dt><dd>TinkerHub</dd></div>
+      <div><dt>Learning</dt><dd>Python, web development, AI</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="kicker">What I work with</div>
+    <h2>Engineering <em>skills</em></h2>
+    <div class="skills">
+      <article class="skill">
+        <h3>Electronics</h3>
+        <p>Understanding circuits, devices and communication from the ground up.</p>
+        <ul class="chips"><li>Circuit basics</li><li>Communication systems</li><li>Components</li></ul>
+      </article>
+      <article class="skill">
+        <h3>Emerging tech</h3>
+        <p>Areas I'm actively exploring and want to build in.</p>
+        <ul class="chips"><li>IoT</li><li>Artificial intelligence</li><li>Healthcare technology</li><li class="soon">Arduino (next)</li><li class="soon">ESP32 (next)</li></ul>
+      </article>
+      <article class="skill">
+        <h3>Beyond engineering</h3>
+        <p>Turning ideas into visuals, on screen and on paper.</p>
+        <ul class="chips"><li>Canva</li><li>Oil pastel art</li><li>Journaling</li><li>Photography</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="kicker">My engineering path</div>
+    <h2>Learning <em>roadmap</em></h2>
+    <ol class="road">
+      <li><small>Foundation</small><h3>ECE at SCTCE</h3><p>Electronics and communication fundamentals, backed by an IIT Madras course I took in Class 12.</p></li>
+      <li class="go"><small>In progress</small><h3>Code and IoT concepts</h3><p>Python, web development and how connected devices work.</p></li>
+      <li class="next"><small>Up next</small><h3>Arduino and ESP32</h3><p>Hands-on circuits, sensors and my first working IoT builds.</p></li>
+      <li class="goal"><small>The goal</small><h3>Smart tech that helps</h3><p>IoT for healthcare, homes and the environment.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="ideas">
+  <div class="wrap">
+    <div class="kicker">What I'm working towards</div>
+    <h2>Ideas I want <em>to build</em></h2>
+    <p>Concepts I plan to make as I learn Arduino and ESP32. Each one starts with a real problem worth solving.</p>
+    <div class="skills">
+      <article class="skill"><span class="tag">Concept</span><h3>Healthcare &amp; wearables</h3><p>A wearable that tracks vital signs like heart rate and alerts family or doctors when something looks wrong.</p><ul class="chips"><li>Sensors</li><li>ESP32</li><li>Mobile alerts</li></ul></article>
+      <article class="skill"><span class="tag">Concept</span><h3>Smart home &amp; automation</h3><p>A room that senses who is inside and adjusts lights and fans, saving energy without touching a switch.</p><ul class="chips"><li>Motion sensor</li><li>Relays</li><li>Wi-Fi</li></ul></article>
+      <article class="skill"><span class="tag">Concept</span><h3>Agriculture &amp; environment</h3><p>A soil-moisture sensor that shows exactly when plants need water, so none is wasted.</p><ul class="chips"><li>Soil sensor</li><li>Low power</li><li>Dashboard</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="recognition">
+  <div class="wrap">
+    <div class="kicker">Along the way</div>
+    <h2>Highlights &amp; <em>learning</em></h2>
+    <div class="rec">
+      <div>
+        <h3>Certificates &amp; courses</h3>
+        <ul>
+          <!-- Add the course name below if you like, e.g. "IIT Madras: Introduction to ..." -->
+          <li><b>IIT Madras 8-week course</b><span>Completed during Class 12</span></li>
+          <li><b>Canva design courses</b><span>Online course certificates</span></li>
+          <li><b>Online participation certificates</b><span>Workshops and events organised by my college</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Community &amp; activities</h3>
+        <ul>
+          <li><b>Member, TinkerHub</b><span>Currently active, learning and building with a community of tech enthusiasts</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="creative">
+  <div class="wrap">
+    <div class="kicker">Beyond engineering</div>
+    <h2>My <em>creative side</em></h2>
+    <div class="gallery">
+      <figure><span>&#10047;</span><img src="art1.jpg" alt="Oil pastel artwork" onerror="this.remove()"><figcaption></figcaption></figure>
+      <figure><span>&#10048;</span><img src="art2.jpg" alt="Oil pastel artwork" onerror="this.remove()"><figcaption></figcaption></figure>
+    </div>
+    <div class="creative">
+      <article class="art"><h3>Oil pastel art</h3><p>Colour, texture and imagination, drawn one oil pastel layer at a time. It's where I think without rules.</p><span class="flower">✿</span></article>
+      <article class="art"><h3>Journaling</h3><p>Collecting thoughts, ideas and small moments, the way I collect lessons from engineering.</p><span class="flower">❀</span></article>
+    </div>
+  </div>
+</section>
+
+<section id="photography">
+  <div class="wrap">
+    <div class="kicker">Through my lens</div>
+    <h2>My <em>photography</em></h2>
+    <p>Little moments and quiet details I notice along the way.</p>
+    <div class="gallery wide">
+      <figure><span>&#10022;</span><img src="photo1.jpg" alt="Photograph by Nakshathra" onerror="this.remove()"><figcaption>Setting sun, rising hopes...</figcaption></figure>
+      <figure><span>&#10022;</span><img src="photo2.jpg" alt="Photograph by Nakshathra" onerror="this.remove()"><figcaption>Feeling alone amidst the crowd...</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="quote">Somewhere between circuits and creativity, I'm discovering my own way forward.<span>✦ ❀ ✦</span></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="kicker">Say hello</div>
+    <h2>Let's <em>connect.</em></h2>
+    <p>Always open to learning, exchanging ideas and working on something new together.</p>
+    <div class="links">
+      <a class="btn main" href="mailto:your.email@example.com">Email me</a>
+      <a class="btn ghost" href="https://github.com/your-username">GitHub</a>
+      <a class="btn ghost" href="https://linkedin.com/in/your-username">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>Made with curiosity and a little creativity ✦ © 2026 Nakshathra</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('sky'),x=c.getContext('2d'),w,h,stars=[],m={x:-999,y:-999};
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    var r=c.parentElement.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);
+    w=r.width;h=r.height;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);
+    var n=Math.round(Math.min(110,w*h/9000));stars=[];
+    for(var i=0;i<n;i++)stars.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.5+.7,p:Math.random()*6});
+  }
+  function draw(t){
+    x.clearRect(0,0,w,h);
+    stars.forEach(function(s){
+      if(!reduce){s.x+=s.vx;s.y+=s.vy;if(s.x<0||s.x>w)s.vx*=-1;if(s.y<0||s.y>h)s.vy*=-1}
+      var a=.55+.4*Math.sin(t/900+s.p);
+      x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);x.fillStyle='rgba(235,225,255,'+a+')';x.fill();
+    });
+    for(var i=0;i<stars.length;i++){
+      var a=stars[i],dm=Math.hypot(a.x-m.x,a.y-m.y);
+      if(dm>250)continue;
+      for(var j=i+1;j<stars.length;j++){
+        var b=stars[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<190&&Math.hypot(b.x-m.x,b.y-m.y)<250){
+          var al=Math.min(1,(1-d/190)*1.2+.35)*(1-dm/250*.6)*.75;x.shadowColor='rgba(125,180,255,.7)';x.shadowBlur=5;x.strokeStyle='rgba(165,200,255,'+al+')';x.lineWidth=1.5;
+          x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,a.y);x.lineTo(b.x,b.y);x.stroke();x.shadowBlur=0;x.fillStyle='rgba(215,190,255,'+al+')';x.fillRect(b.x-2.5,a.y-2.5,5,5);x.beginPath();x.arc(a.x,a.y,3.2,0,6.283);x.arc(b.x,b.y,3.2,0,6.283);x.fill(); /* right-angle circuit trace */
+        }
+      }
+    }
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  c.parentElement.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+  c.parentElement.addEventListener('pointerleave',function(){m.x=m.y=-999});
+  addEventListener('resize',size);
+  size();requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
